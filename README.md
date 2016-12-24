@@ -24,7 +24,9 @@ rtl-sdr app.
 - Plug in your RTL-SDR into the USB port on the Raspberry Pi
 - git push this repository to your Resin application
 - SSH into your Raspberry Pi via Resin and start 'rtlamr' to find water meters in your area
-- Once you find your meter, enter it as an environment variable in the Resin dashboard until "METERID"
+- Once you find your meter, enter it as an environment variable in the Resin dashboard under "METERID"
 - Decide what you want to do with the meter readings (I use [StatX](https://statx.io) to log the readings and view them on my phone)
+
+## My current setup
 
 ![StatX Screenshot](https://cloud.githubusercontent.com/assets/2868/21464808/1ad63648-c957-11e6-9be4-7c3dc1b2b307.png) ![Raspberry Pi](https://cloud.githubusercontent.com/assets/2868/21464807/14e7c1b6-c957-11e6-8049-69b19969f817.jpg)
