@@ -27,3 +27,4 @@ rtl-sdr app.
 - Once you find your meter, enter it as an environment variable in the Resin dashboard until "METERID"
 - Decide what you want to do with the meter readings (I use [StatX](https://statx.io) to log the readings and view them on my phone)
 
+![StatX Screenshot](https://cloud.githubusercontent.com/assets/2868/21464781/64598b18-c956-11e6-9ca6-ded68918c0e3.PNG) ![Raspberry Pi](https://cloud.githubusercontent.com/assets/2868/21464771/3d1bfe82-c956-11e6-841a-fa64bf3d0acf.JPG)
