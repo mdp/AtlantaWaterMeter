@@ -8,7 +8,7 @@ if [ -z "$METERID" ]; then
 fi
 
 # Kill this script (and restart the container) if we haven't seen an update in 30 minutes
-./watchdog.sh $$ 30 updated.log &
+./watchdog.sh 30 updated.log &
 
 while true; do
   # Suppress the very verbose output of rtl_tcp and background the process

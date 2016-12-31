@@ -1,20 +1,22 @@
 #!/bin/bash
 
-# Usage ./watchdog.sh PID TIMEOUT_MINUTES WATCHED_FILE
+# Usage ./watchdog.sh TIMEOUT_MINUTES WATCHED_FILE
 
-pid=$1
-timeout=$2
-file=$3
+timeout=$1
+file=$2
+
+oneMinute=60
 
 echo "Watchdog starting: PID: $pid, Timeout: $timeout, File: $file"
 
-sleep $(expr $timeout \* 60)
+sleep $(expr $timeout \* $oneMinute)
 
 while [[ ! -z $(find $file -mmin -$timeout -ls) ]]; do
-  sleep 60
+  sleep $oneMinute
 done
 
-echo "Watchdog file($file) has not been updated within $timeout minutes - Killing process"
+echo "Watchdog file($file) has not been updated within $timeout minutes - Rebooting"
 
-kill -9 $pid
+curl -X POST --header "Content-Type:application/json" \
+    "$RESIN_SUPERVISOR_ADDRESS/v1/reboot?apikey=$RESIN_SUPERVISOR_API_KEY"
 
