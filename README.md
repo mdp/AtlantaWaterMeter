@@ -1,8 +1,9 @@
-# Consumption Tracker for Atlanta Smart Water Meters
+# Raspberry Pi tracker for Neptune R900 smart water meters
 
-Notice: This is still early in development, but working well for my use. The setup
-process is not simple and requires a fair amount of knowledge about git, Resin, and the
-rtl-sdr app.
+### Goals
+- A Raspberry Pi and a RTL-SDR to track my smart water meter
+- Docker to simplify the installation and setup of RTLAMR
+- Resin.io to deploy this docker container to the Raspberry Pi in my house
 
 ## Credit
 
