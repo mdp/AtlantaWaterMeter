@@ -7,6 +7,15 @@ if [ -z "$METERID" ]; then
   exit 0
 fi
 
+# Setup for Metric/CCF
+UNIT_DIVISOR=10000
+UNIT="CCF" # Hundred cubic feet
+if [ ! -z "$METRIC" ]; then
+  echo "Setting meter to metric readings"
+  UNIT_DIVISOR=1000
+  UNIT="Cubic Meters"
+fi
+
 # Kill this script (and restart the container) if we haven't seen an update in 30 minutes
 ./watchdog.sh 30 updated.log &
 
@@ -19,8 +28,8 @@ while true; do
   json=$(rtlamr -msgtype=r900 -filterid=$METERID -single=true -format=json)
   echo "Meter info: $json"
 
-  consumption=$(echo $json | python -c 'import json,sys;obj=json.load(sys.stdin);print float(obj["Message"]["Consumption"])/10000')
-  echo "Current consumption: $consumption CCF"
+  consumption=$(echo $json | python -c 'import json,sys;obj=json.load(sys.stdin);print float(obj["Message"]["Consumption"])/$UNIT_DIVISOR')
+  echo "Current consumption: $consumption $UNIT"
 
   # Replace with your custom logging code
   if [ ! -z "$STATX_APIKEY" ]; then
