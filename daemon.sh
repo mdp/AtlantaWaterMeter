@@ -17,6 +17,7 @@ if [ ! -z "$METRIC" ]; then
 fi
 
 # Kill this script (and restart the container) if we haven't seen an update in 30 minutes
+# Nasty issue probably related to a memory leak, but this works really well, so not changing it
 ./watchdog.sh 30 updated.log &
 
 while true; do
@@ -32,13 +33,15 @@ while true; do
   echo "Current consumption: $consumption $UNIT"
 
   # Replace with your custom logging code
-  if [ ! -z "$STATX_APIKEY" ]; then
-    echo "Logging to StatX"
-    statx --apikey $STATX_APIKEY --authtoken $STATX_AUTHTOKEN update --group $STATX_GROUPID --stat $STATX_STATID --value $consumption
+  if [ ! -z "$CURL_API" ]; then
+    echo "Logging to custom API"
+    # For example, CURL_API would be "https://mylogger.herokuapp.com?value="
+    # Currently uses a GET request
+    curl "$CURL_API$consumption"
   fi
 
   kill $rtl_tcp_pid # rtl_tcp has a memory leak and hangs after frequent use, restarts required - https://github.com/bemasher/rtlamr/issues/49
-  sleep 30 # I don't need THAT many updates
+  sleep 60 # I don't need THAT many updates
 
   # Let the watchdog know we've done another cycle
   touch updated.log
