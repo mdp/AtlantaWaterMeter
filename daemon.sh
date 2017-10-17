@@ -37,7 +37,7 @@ while true; do
     echo "Logging to custom API"
     # For example, CURL_API would be "https://mylogger.herokuapp.com?value="
     # Currently uses a GET request
-    curl "$CURL_API$consumption"
+    curl -L "$CURL_API$consumption"
   fi
 
   kill $rtl_tcp_pid # rtl_tcp has a memory leak and hangs after frequent use, restarts required - https://github.com/bemasher/rtlamr/issues/49
