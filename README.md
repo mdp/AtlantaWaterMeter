@@ -49,22 +49,22 @@ Couple of problems needed to be solved:
 Sorry, this isn't an elegant solution, but it works.
 
 1. Open my [template spreadsheet](https://docs.google.com/spreadsheets/d/11XcyeYHD8ZzQEbY5s6f08xd5yaaU0FqFmQ8fDXtR44w/edit?usp=sharing) and make a copy - 'File' > 'Make a copy...'
-1. Your new copy will open. Click 'Tools' > 'Script editor'
-1. In the script editor page, Change the 'SheetID' to your version of the spreadsheet
-  - eg. https://docs.google.com/spreadsheets/d/158hDszrPBudHZkFik2AvQDFTDfzV8mYHq80PyHb4dDo/edit#gid=0 - the SheetId would be '158hDszrPBudHZkFik2AvQDFTDfzV8mYHq80PyHb4dDo'
-1. 'File' > 'Save'
-1. 'Publish' > 'Deploy as web app...' - Deploy with the following settings
-  - Version: 'New'
-  - Execute the app as: 'Me'
-  - Who has access to the app: 'Anyone, even anonymous'
-  - Click 'Deploy'
-  - Authoration required prompt will display
-  - Click 'Review Permissions'
-  - Choose your account and allow access to your Drive
-    - There might be some scary messaging here from Google about allowing an unverified script to have access to your account, but the only script that has access is the one you're looking at.
-  - ** Copy the 'Current web app URL:' on the final step after clicking deploy **
-1. The URL from the last step is now your URL you'll need to setup in Resin
-  - Should look like `https://script.google.com/macros/u/1/s/RandomLookingScriptID]/exec`
-  - In Resin add the environment variable CURL_API with the value "https://script.google.com/macros/s/RandomLookingScriptID/exec?value="
-  - To test it you can send some data with 'curl: `curl -L https://script.google.com/macros/u/1/s/RandomLookingScriptID/exec?value=10`
+2. Your new copy will open. Click 'Tools' > 'Script editor'
+3. In the script editor page, Change the 'SheetID' to your version of the spreadsheet
+    - eg. https://docs.google.com/spreadsheets/d/158hDszrPBudHZkFik2AvQDFTDfzV8mYHq80PyHb4dDo/edit#gid=0 - the SheetId would be '158hDszrPBudHZkFik2AvQDFTDfzV8mYHq80PyHb4dDo'
+4. 'File' > 'Save'
+5. 'Publish' > 'Deploy as web app...' - Deploy with the following settings
+    - Version: 'New'
+    - Execute the app as: 'Me'
+    - Who has access to the app: 'Anyone, even anonymous'
+    - Click 'Deploy'
+    - Authoration required prompt will display
+    - Click 'Review Permissions'
+    - Choose your account and allow access to your Drive
+      - There might be some scary messaging here from Google about allowing an unverified script to have access to your account, but the only script that has access is the one you're looking at.
+    - ** Copy the 'Current web app URL:' on the final step after clicking deploy **
+6. The URL from the last step is now your URL you'll need to setup in Resin
+    - Should look like `https://script.google.com/macros/u/1/s/RandomLookingScriptID]/exec`
+    - In Resin add the environment variable CURL_API with the value "https://script.google.com/macros/s/RandomLookingScriptID/exec?value="
+    - To test it you can send some data with 'curl: `curl -L https://script.google.com/macros/u/1/s/RandomLookingScriptID/exec?value=10`
 
