@@ -1,7 +1,7 @@
 # Raspberry Pi tracker for Neptune R900 smart water meters
 ### Works for City of Atlanta and many other municipalities
 
-[See it in action](https://docs.google.com/spreadsheets/d/11XcyeYHD8ZzQEbY5s6f08xd5yaaU0FqFmQ8fDXtR44w/edit?usp=sharing) (Please don't judge me by my water usage)
+[See an example](https://docs.google.com/spreadsheets/d/1XC9UFRQpvzUn7gjXML7KuaprB8APLXgE_EjsmUM8MWI/edit?usp=sharing) (Please don't judge me by my water usage)
 
 ## Introduction
 
@@ -55,7 +55,7 @@ Couple of problems needed to be addressed with this script:
 
 Here's the full breakdown:
 
-1. Open my [template spreadsheet](https://docs.google.com/spreadsheets/d/11XcyeYHD8ZzQEbY5s6f08xd5yaaU0FqFmQ8fDXtR44w/edit?usp=sharing) and make a copy - 'File' > 'Make a copy...'
+1. Open my [template spreadsheet](https://docs.google.com/spreadsheets/d/1XC9UFRQpvzUn7gjXML7KuaprB8APLXgE_EjsmUM8MWI/edit?usp=sharing) and make a copy - 'File' > 'Make a copy...'
 2. Your new copy will open. Click 'Tools' > 'Script editor'
 3. In the script editor page, Change the 'SheetID' to your version of the spreadsheet
     - eg. https://docs.google.com/spreadsheets/d/158hDszrPBudHZkFik2AvQDFTDfzV8mYHq80PyHb4dDo/edit#gid=0 - the SheetId would be '158hDszrPBudHZkFik2AvQDFTDfzV8mYHq80PyHb4dDo'
