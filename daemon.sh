@@ -2,8 +2,14 @@
 
 if [ -z "$METERID" ]; then
   echo "METERID not set, launching in debug mode"
-  echo "Enter Terminal via Resin and run 'rtlamr -msgtype=r900' to see all the local water meters and find your meter ID"
-  rtl_tcp
+  echo "If you don't know your Meter's ID, you'll need to figure it out manually"
+  echo "Easiest way is to go outside and read your meter, then match it to a meter id in the logs"
+  echo "Note: It may take a several minutes to read all the nearby meters"
+
+  rtl_tcp &> /dev/null &
+  sleep 10 #Let rtl_tcp startup and open a port
+
+  rtlamr -msgtype=r900
   exit 0
 fi
 
